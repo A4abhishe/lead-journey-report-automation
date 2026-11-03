@@ -80,6 +80,7 @@ The automation started as sheet formulas and grew, step by step, into a producti
 | `src/TriggerService.gs` | Install, remove and check the daily trigger |
 | `src/Logger.gs` | Writes to `Automation_Logs` |
 | `src/Utilities.gs` | Date parsing, header lookup, HTML escaping |
+| `src/appsscript.json` | Apps Script manifest (V8, Asia/Kolkata) |
 
 ## Setup
 
