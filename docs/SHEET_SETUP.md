@@ -9,7 +9,7 @@ Two columns: setting name in column A, value in column B. Names are matched with
 | Setting | Example | Notes |
 | --- | --- | --- |
 | Recipients | team@example.com, lead@example.com | Comma, semicolon or new line separated |
-| Send Time | 00:05 | 24-hour or `12:05 AM` format |
+| Send Time | 00:15 | 24-hour or `12:15 AM` format. Leave time for `IMPORTRANGE` data to refresh first |
 | Time Zone | Asia/Kolkata | |
 | Report Date Offset | 1 | Days back from today (1 = yesterday) |
 | Test Date | 10/07/2026 | DD/MM/YYYY. Leave blank in production |
