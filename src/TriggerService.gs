@@ -2,12 +2,12 @@
  * Installs one daily trigger for the Lead Journey report.
  *
  * Example:
- * Send Time = 00:05
- * Trigger runs around 12:05 AM in Asia/Kolkata.
+ * Send Time = 00:15
+ * Trigger runs around 12:15 AM in Asia/Kolkata.
  *
  * Important:
  * Apps Script time triggers may run a few minutes before/after
- * the selected minute. Exact 00:05:00 execution is not guaranteed.
+ * the selected minute. Exact 00:15:00 execution is not guaranteed.
  */
 function installDailyTrigger() {
   const config = getConfig();

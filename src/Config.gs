@@ -4,7 +4,7 @@ const AUTOMATION = Object.freeze({
 
   DEFAULTS: {
     TIME_ZONE: 'Asia/Kolkata',
-    SEND_TIME: '00:05',
+    SEND_TIME: '00:15',
     DASHBOARD_SHEET: 'Dashboard',
     MASTER_SHEET: 'Mastersheet',
     FEE_SHEET: 'Application Fee Paid',
