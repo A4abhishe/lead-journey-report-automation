@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Sample Lead Journey Report (dummy data)</title>
+<style>
+  /*
+   * Brand Palette
+   *
+   * Sky blue:   #54C4F1
+   * Lavender:   #7774C7
+   * Violet:     #533092
+   * Dark blue:  #182A74
+   * Navy:       #101D52
+   * Light blue: #EEF6FF
+   */
+
+  body {
+    margin: 0;
+    padding: 24px 10px;
+    background-color: #f3f6fb;
+    font-family:
+      Arial,
+      Helvetica,
+      sans-serif;
+    color: #202124;
+  }
+
+
+  .email-page {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #d9e1ed;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+
+  /* ==================================
+     Header
+     ================================== */
+
+  .brand-header {
+    padding: 24px 30px;
+    background:
+      linear-gradient(
+        135deg,
+        #54c4f1 0%,
+        #7774c7 48%,
+        #533092 100%
+      );
+    color: #ffffff;
+  }
+
+
+  .brand-logo-area,
+  .header-divider,
+  .report-heading {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+
+  .brand-logo-area {
+    width: 34%;
+  }
+
+
+  .brand-logo {
+    display: block;
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+  }
+
+
+  .brand-fallback {
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+
+  .brand-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+  }
+
+
+  .brand-name {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+  }
+
+
+  .header-divider {
+    width: 1px;
+    height: 65px;
+    margin: 0 24px;
+    background-color:
+      rgba(
+        255,
+        255,
+        255,
+        0.65
+      );
+  }
+
+
+  .report-heading {
+    width: 52%;
+  }
+
+
+  .report-heading h1 {
+    margin: 0 0 8px;
+    font-size: 25px;
+    line-height: 1.25;
+    color: #ffffff;
+  }
+
+
+  .report-date {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+
+  /* ==================================
+     Content
+     ================================== */
+
+  .email-content {
+    padding: 28px 32px 32px;
+  }
+
+
+  .greeting {
+    margin: 0 0 12px;
+  }
+
+
+  .intro {
+    margin: 0 0 26px;
+    line-height: 1.6;
+  }
+
+
+  .intro strong {
+    color: #533092;
+  }
+
+
+  .report-section {
+    margin-top: 30px;
+  }
+
+
+  .section-title {
+    margin-bottom: 12px;
+    color: #182a74;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+
+  .section-number {
+    display: inline-block;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 8px;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background:
+      linear-gradient(
+        135deg,
+        #54c4f1,
+        #533092
+      );
+  }
+
+
+  .information-box {
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    border-left: 4px solid #7774c7;
+    border-radius: 4px;
+    background-color: #f6f2fc;
+    color: #35304d;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+
+  /* ==================================
+     Tables
+     ================================== */
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 10px;
+    border: 1px solid #d9e1ed;
+    border-radius: 7px;
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    font-size: 11px;
+  }
+
+
+  th {
+    padding: 10px 8px;
+    border: 1px solid #d3dceb;
+    background:
+      linear-gradient(
+        135deg,
+        #182a74,
+        #533092
+      );
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.3;
+  }
+
+
+  td {
+    padding: 8px 7px;
+    border: 1px solid #dfe5ee;
+    background-color: #ffffff;
+    color: #242424;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+
+  td:first-child,
+  th:first-child {
+    text-align: left;
+  }
+
+
+  tr:nth-child(even) td {
+    background-color: #f8f9fc;
+  }
+
+
+  .total-row td {
+    background-color: #ece8f7 !important;
+    color: #182a74;
+    font-weight: bold;
+    border-top: 2px solid #533092;
+  }
+
+
+  /* ==================================
+     CTA Button
+     ================================== */
+
+  .button-area {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+
+  .sheet-button {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 6px;
+    background:
+      linear-gradient(
+        135deg,
+        #54c4f1,
+        #533092
+      );
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+
+  /* ==================================
+     Signature
+     ================================== */
+
+  .signature {
+    margin-top: 28px;
+    line-height: 1.45;
+    color: #353535;
+  }
+
+
+  .signature p {
+    margin: 2px 0;
+  }
+
+
+  .signature-brand {
+    color: #533092;
+    font-weight: bold;
+  }
+
+
+  /* ==================================
+     Footer
+     ================================== */
+
+  .brand-footer {
+    padding: 16px 25px;
+    background:
+      linear-gradient(
+        135deg,
+        #182a74,
+        #533092
+      );
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+  }
+
+
+  .footer-item,
+  .footer-separator {
+    display: inline-block;
+  }
+
+
+  .footer-separator {
+    margin: 0 16px;
+    color:
+      rgba(
+        255,
+        255,
+        255,
+        0.6
+      );
+  }
+
+
+  /* ==================================
+     Mobile-friendly email styling
+     ================================== */
+
+  @media only screen and (max-width: 700px) {
+
+    body {
+      padding: 0;
+    }
+
+
+    .email-page {
+      border-radius: 0;
+    }
+
+
+    .brand-header {
+      padding: 20px;
+    }
+
+
+    .brand-logo-area,
+    .report-heading {
+      display: block;
+      width: 100%;
+    }
+
+
+    .header-divider {
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin: 16px 0;
+    }
+
+
+    .brand-logo {
+      max-width: 230px;
+    }
+
+
+    .email-content {
+      padding: 22px 16px;
+    }
+
+
+    table {
+      font-size: 9px;
+    }
+
+
+    th,
+    td {
+      padding: 7px 5px;
+    }
+
+
+    .footer-item,
+    .footer-separator {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+</style>
+</head><body><div class="email-page"><div class="brand-header"><div class="brand-logo-area"><div class="brand-fallback"><div class="brand-icon">Y</div><div class="brand-name">Your Institute</div></div></div><div class="header-divider"></div><div class="report-heading"><h1>Lead Journey Report</h1><div class="report-date">14-May-2026</div></div></div><div class="email-content"><p class="greeting">Dear Team,</p><p class="intro">Please find below the automated Lead Journey Report for <strong>14-May-2026</strong>.</p><div class="report-section"><div class="section-title"><span class="section-number">1</span><span>Source-wise Lead Journey</span></div><div class="information-box"><div><strong>Daywise - 1K:</strong> Same-day lead creation and same-day 1K payment.</div><div><strong>Datewise - 1K:</strong> 1K payment received on the report date.</div></div><div class="table-wrap"><table><tr><th>Source</th><th>Lead Count</th><th>Daywise - 1K</th><th>Datewise - 1K</th><th>15K</th><th>75K</th><th>Hostel Token</th></tr><tr><td>Facebook</td><td>42</td><td>6</td><td>9</td><td>3</td><td>1</td><td>1</td></tr><tr><td>Google Ads</td><td>57</td><td>8</td><td>11</td><td>4</td><td>2</td><td>1</td></tr><tr><td>Instagram</td><td>23</td><td>2</td><td>4</td><td>1</td><td>0</td><td>0</td></tr><tr><td>Organic</td><td>31</td><td>5</td><td>7</td><td>2</td><td>1</td><td>1</td></tr><tr><td>Referral</td><td>12</td><td>3</td><td>4</td><td>2</td><td>1</td><td>0</td></tr><tr><td>WhatsApp</td><td>18</td><td>1</td><td>3</td><td>1</td><td>0</td><td>0</td></tr><tr><td>Others</td><td>9</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr class="total-row"><td>Total</td><td>192</td><td>25</td><td>39</td><td>13</td><td>5</td><td>3</td></tr></table></div></div><div class="report-section"><div class="section-title"><span class="section-number">2</span><span>Matrix Count</span></div><div class="table-wrap"><table><tr><th>Matrix</th><th>Count</th></tr><tr><td>Application Fee</td><td>860</td></tr><tr><td>Test Done</td><td>774</td></tr><tr><td>Interview Done</td><td>668</td></tr><tr><td>Offer Letter Shared</td><td>345</td></tr><tr><td>15K Paid</td><td>276</td></tr><tr><td>75K Paid</td><td>221</td></tr><tr><td>Hostel Token</td><td>136</td></tr><tr><td>75K NP &amp; HT Paid</td><td>2</td></tr><tr><td>15K Refund &amp; Drop</td><td>84</td></tr><tr><td>75K Refund</td><td>6</td></tr><tr><td>1st Sem Full Paid</td><td>181</td></tr><tr><td>Partially Paid</td><td>3</td></tr><tr><td>Full Hostel Paid</td><td>125</td></tr></table></div></div><div class="report-section"><div class="section-title"><span class="section-number">3</span><span>Exam Date-wise Journey</span></div><div class="table-wrap"><table><tr><th>Exam Date</th><th>COUNTA of Application No</th><th>COUNTA of Exam Date</th><th>COUNTA of Interview</th><th>COUNTA of Final Status</th><th>COUNTA of 15K Payment Date</th><th>COUNTA of 75K Payment Date</th><th>COUNTA of Hostel Token Amount Paid date</th></tr><tr><td>2-Mar</td><td>48</td><td>48</td><td>41</td><td>22</td><td>18</td><td>14</td><td>9</td></tr><tr><td>16-Mar</td><td>61</td><td>61</td><td>55</td><td>30</td><td>24</td><td>19</td><td>12</td></tr><tr><td>6-Apr</td><td>73</td><td>73</td><td>64</td><td>35</td><td>27</td><td>22</td><td>15</td></tr><tr><td>20-Apr</td><td>55</td><td>55</td><td>47</td><td>24</td><td>19</td><td>15</td><td>10</td></tr><tr><td>4-May</td><td>66</td><td>66</td><td>58</td><td>31</td><td>25</td><td>20</td><td>13</td></tr><tr class="total-row"><td>Grand Total</td><td>303</td><td>303</td><td>265</td><td>142</td><td>113</td><td>90</td><td>59</td></tr></table></div></div><div class="report-section"><div class="section-title"><span class="section-number">4</span><span>75K Paid Date Wise</span></div><div class="information-box">Count of students having a 75K Payment Date, grouped by Final Tuition Fee and Program Batch.</div><div class="table-wrap"><table><tr><th>Final Tuition Fee</th><th>Batch 1</th><th>Batch 2</th><th>Batch 3</th><th>Batch 4</th><th>Grand Total</th></tr><tr><td>1,450,000</td><td>2</td><td>4</td><td>3</td><td>1</td><td>10</td></tr><tr><td>1,600,000</td><td>5</td><td>7</td><td>9</td><td>4</td><td>25</td></tr><tr><td>1,700,000</td><td>9</td><td>11</td><td>14</td><td>8</td><td>42</td></tr><tr><td>1,750,000</td><td>6</td><td>5</td><td>8</td><td>4</td><td>23</td></tr><tr class="total-row"><td>Grand Total</td><td>22</td><td>27</td><td>34</td><td>17</td><td>100</td></tr></table></div></div><div class="report-section"><div class="section-title"><span class="section-number">5</span><span>Daily Full Payment Summary</span></div><div class="information-box">Counts are based on the date on which the final transaction completed the applicable fee.</div><div class="table-wrap"><table><tr><th>Date</th><th>1st Semester Fee Full Paid</th><th>1yr Hostel Fee Full Paid</th></tr><tr><td>14/05/2026</td><td>4</td><td>2</td></tr></table></div></div><div class="button-area"><a href="#" class="sheet-button">Open Lead Journey Google Sheet</a></div><div class="signature"><p>Regards,</p><p class="signature-brand">Your Institute</p><p>Admissions Automation</p></div></div><div class="brand-footer"><div class="footer-item">www.example.com</div><div class="footer-separator">|</div><div class="footer-item">Your Institute</div></div></div></body></html>
