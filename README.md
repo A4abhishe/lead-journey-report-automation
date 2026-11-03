@@ -12,7 +12,7 @@ The admissions and finance teams tracked leads, payments and enrollments across 
 
 ## The solution
 
-A time-driven Apps Script runs every night (around 00:05 IST), reads the sheets, calculates every metric for the previous day and sends one HTML email to the leadership and sales teams.
+A time-driven Apps Script runs every night (around 00:15 IST), reads the sheets, calculates every metric for the previous day and sends one HTML email to the founder, leadership and sales teams.
 
 - **End to end:** no person is needed to prepare or send the report.
 - **About 50% less time** spent on daily reporting work.
@@ -23,7 +23,7 @@ A time-driven Apps Script runs every night (around 00:05 IST), reads the sheets,
 
 ```mermaid
 flowchart LR
-    T[Daily trigger<br/>~00:05 IST] --> C[Read Automation_Settings]
+    T[Daily trigger<br/>~00:15 IST] --> C[Read Automation_Settings]
     C --> D[Mastersheet<br/>source-wise leads]
     C --> F[Application Fee Paid<br/>loaded once]
     F --> M[Matrix Count]
@@ -48,6 +48,20 @@ The fee sheet is read **one time** and the same in-memory data is shared by thre
 | 3 | Exam Date-wise Journey | Funnel counts grouped by exam date |
 | 4 | 75K Paid Date Wise | Students who paid 75K, grouped by final tuition fee and batch |
 | 5 | Daily Full Payment Summary | Students who completed semester or hostel fees on the report date |
+
+## How it was built
+
+The automation started as sheet formulas and grew, step by step, into a production script. Each change was tested with a back-dated `Test Date` before it went live, because the email goes straight to the founder.
+
+| Problem met | What was done |
+| --- | --- |
+| `IMPORTRANGE` of the 13,000+ row master sheet failed with "result too large" | Split the import into row blocks stacked into one range |
+| Source data uses UK dates in several formats (`dd/MM/yyyy`, `dd-MM-yyyy`, `13-Jul-2026`) | One date parser turns every format into `yyyy-MM-dd` before comparing |
+| The email showed 0 in every column for a date that had data, because dashboard formulas had not finished recalculating | The report is calculated directly from the master sheet, so it never waits for formulas |
+| Runs started timing out near the 6-minute Apps Script limit | The fee sheet is loaded once and shared by three reports, only the needed master-sheet columns are read, and the trigger moved to 00:15 so imports refresh first |
+| 75K refunds were not counted in the matrix | Refund rules now read both refund columns and count each row once |
+| New asks: Daily Full Payment Summary and Full Hostel Paid count | Added as new sections without changing the existing ones |
+| Plain email | Branded HTML template with logo, brand colours and a mobile layout, approved from a sample first |
 
 ## Project structure
 
