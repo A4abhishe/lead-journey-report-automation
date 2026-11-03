@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+
+    <?!= include('Styles'); ?>
+  </head>
+
+  <body>
+    <div class="email-page">
+
+      <!-- Brand Header -->
+      <div class="brand-header">
+
+        <div class="brand-logo-area">
+
+          <? if (report.hasLogo) { ?>
+
+            <img
+              src="cid:brandLogo"
+              alt="<?= report.brandName ?>"
+              class="brand-logo"
+            >
+
+          <? } else { ?>
+
+            <div class="brand-fallback">
+              <div class="brand-icon"><?= String(report.brandName).charAt(0) ?></div>
+
+              <div class="brand-name">
+                <?= report.brandName ?>
+              </div>
+            </div>
+
+          <? } ?>
+
+        </div>
+
+        <div class="header-divider"></div>
+
+        <div class="report-heading">
+          <h1>
+            Lead Journey Report
+          </h1>
+
+          <div class="report-date">
+            <?= report.mailDate ?>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="email-content">
+
+        <p class="greeting">
+          Dear Team,
+        </p>
+
+        <p class="intro">
+          Please find below the automated
+          Lead Journey Report for
+          <strong>
+            <?= report.mailDate ?>
+          </strong>.
+        </p>
+
+
+        <!-- Section 1 -->
+        <div class="report-section">
+
+          <div class="section-title">
+            <span class="section-number">
+              1
+            </span>
+
+            <span>
+              Source-wise Lead Journey
+            </span>
+          </div>
+
+          <div class="information-box">
+            <div>
+              <strong>
+                Daywise - 1K:
+              </strong>
+
+              Same-day lead creation and
+              same-day 1K payment.
+            </div>
+
+            <div>
+              <strong>
+                Datewise - 1K:
+              </strong>
+
+              1K payment received on the
+              report date.
+            </div>
+          </div>
+
+          <?!= tableToHtml_(
+            report.dashboard.rows,
+            {
+              headerRows: 1,
+              tableClass: 'source-table'
+            }
+          ); ?>
+
+        </div>
+
+
+        <!-- Section 2 -->
+        <div class="report-section">
+
+          <div class="section-title">
+            <span class="section-number">
+              2
+            </span>
+
+            <span>
+              Matrix Count
+            </span>
+          </div>
+
+          <?!= tableToHtml_(
+            report.matrix.rows,
+            {
+              headerRows: 1,
+              tableClass: 'matrix-table'
+            }
+          ); ?>
+
+        </div>
+
+
+        <!-- Section 3 -->
+        <div class="report-section">
+
+          <div class="section-title">
+            <span class="section-number">
+              3
+            </span>
+
+            <span>
+              Exam Date-wise Journey
+            </span>
+          </div>
+
+          <?!= tableToHtml_(
+            report.pivot.examDateRows,
+            {
+              headerRows: 1,
+              tableClass: 'exam-table'
+            }
+          ); ?>
+
+        </div>
+
+
+        <!-- Section 4 -->
+        <div class="report-section">
+
+          <div class="section-title">
+            <span class="section-number">
+              4
+            </span>
+
+            <span>
+              75K Paid Date Wise
+            </span>
+          </div>
+
+          <div class="information-box">
+            Count of students having a
+            75K Payment Date, grouped by
+            Final Tuition Fee and
+            Program Batch.
+          </div>
+
+          <?!= tableToHtml_(
+            report.pivot.tuitionBatchRows,
+            {
+              headerRows: 1,
+              tableClass: 'payment-table'
+            }
+          ); ?>
+
+        </div>
+
+
+        <!-- Section 5 -->
+        <div class="report-section">
+
+          <div class="section-title">
+            <span class="section-number">
+              5
+            </span>
+
+            <span>
+              Daily Full Payment Summary
+            </span>
+          </div>
+
+          <div class="information-box">
+            Counts are based on the date
+            on which the final transaction
+            completed the applicable fee.
+          </div>
+
+          <?!= tableToHtml_(
+            report.dailyFullPaid.rows,
+            {
+              headerRows: 1,
+              tableClass: 'daily-full-paid-table'
+            }
+          ); ?>
+
+        </div>
+
+
+        <div class="button-area">
+          <a
+            href="<?= report.spreadsheetUrl ?>"
+            class="sheet-button"
+          >
+            Open Lead Journey Google Sheet
+          </a>
+        </div>
+
+
+        <div class="signature">
+          <p>
+            Regards,
+          </p>
+
+          <p class="signature-brand">
+            <?= report.brandName ?>
+          </p>
+
+          <p>
+            Admissions Automation
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="brand-footer">
+
+        <div class="footer-item">
+          <?= report.brandWebsite ?>
+        </div>
+
+        <div class="footer-separator">
+          |
+        </div>
+
+        <div class="footer-item">
+          <?= report.brandName ?>
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+</html>

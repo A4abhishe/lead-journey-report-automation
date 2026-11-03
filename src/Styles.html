@@ -1,0 +1,417 @@
+<style>
+  /*
+   * Brand Palette
+   *
+   * Sky blue:   #54C4F1
+   * Lavender:   #7774C7
+   * Violet:     #533092
+   * Dark blue:  #182A74
+   * Navy:       #101D52
+   * Light blue: #EEF6FF
+   */
+
+  body {
+    margin: 0;
+    padding: 24px 10px;
+    background-color: #f3f6fb;
+    font-family:
+      Arial,
+      Helvetica,
+      sans-serif;
+    color: #202124;
+  }
+
+
+  .email-page {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #d9e1ed;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+
+  /* ==================================
+     Header
+     ================================== */
+
+  .brand-header {
+    padding: 24px 30px;
+    background:
+      linear-gradient(
+        135deg,
+        #54c4f1 0%,
+        #7774c7 48%,
+        #533092 100%
+      );
+    color: #ffffff;
+  }
+
+
+  .brand-logo-area,
+  .header-divider,
+  .report-heading {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+
+  .brand-logo-area {
+    width: 34%;
+  }
+
+
+  .brand-logo {
+    display: block;
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+  }
+
+
+  .brand-fallback {
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+
+  .brand-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+  }
+
+
+  .brand-name {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+  }
+
+
+  .header-divider {
+    width: 1px;
+    height: 65px;
+    margin: 0 24px;
+    background-color:
+      rgba(
+        255,
+        255,
+        255,
+        0.65
+      );
+  }
+
+
+  .report-heading {
+    width: 52%;
+  }
+
+
+  .report-heading h1 {
+    margin: 0 0 8px;
+    font-size: 25px;
+    line-height: 1.25;
+    color: #ffffff;
+  }
+
+
+  .report-date {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+
+  /* ==================================
+     Content
+     ================================== */
+
+  .email-content {
+    padding: 28px 32px 32px;
+  }
+
+
+  .greeting {
+    margin: 0 0 12px;
+  }
+
+
+  .intro {
+    margin: 0 0 26px;
+    line-height: 1.6;
+  }
+
+
+  .intro strong {
+    color: #533092;
+  }
+
+
+  .report-section {
+    margin-top: 30px;
+  }
+
+
+  .section-title {
+    margin-bottom: 12px;
+    color: #182a74;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+
+  .section-number {
+    display: inline-block;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 8px;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background:
+      linear-gradient(
+        135deg,
+        #54c4f1,
+        #533092
+      );
+  }
+
+
+  .information-box {
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    border-left: 4px solid #7774c7;
+    border-radius: 4px;
+    background-color: #f6f2fc;
+    color: #35304d;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+
+  /* ==================================
+     Tables
+     ================================== */
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 10px;
+    border: 1px solid #d9e1ed;
+    border-radius: 7px;
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    font-size: 11px;
+  }
+
+
+  th {
+    padding: 10px 8px;
+    border: 1px solid #d3dceb;
+    background:
+      linear-gradient(
+        135deg,
+        #182a74,
+        #533092
+      );
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.3;
+  }
+
+
+  td {
+    padding: 8px 7px;
+    border: 1px solid #dfe5ee;
+    background-color: #ffffff;
+    color: #242424;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+
+  td:first-child,
+  th:first-child {
+    text-align: left;
+  }
+
+
+  tr:nth-child(even) td {
+    background-color: #f8f9fc;
+  }
+
+
+  .total-row td {
+    background-color: #ece8f7 !important;
+    color: #182a74;
+    font-weight: bold;
+    border-top: 2px solid #533092;
+  }
+
+
+  /* ==================================
+     CTA Button
+     ================================== */
+
+  .button-area {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+
+  .sheet-button {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 6px;
+    background:
+      linear-gradient(
+        135deg,
+        #54c4f1,
+        #533092
+      );
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+
+  /* ==================================
+     Signature
+     ================================== */
+
+  .signature {
+    margin-top: 28px;
+    line-height: 1.45;
+    color: #353535;
+  }
+
+
+  .signature p {
+    margin: 2px 0;
+  }
+
+
+  .signature-brand {
+    color: #533092;
+    font-weight: bold;
+  }
+
+
+  /* ==================================
+     Footer
+     ================================== */
+
+  .brand-footer {
+    padding: 16px 25px;
+    background:
+      linear-gradient(
+        135deg,
+        #182a74,
+        #533092
+      );
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+  }
+
+
+  .footer-item,
+  .footer-separator {
+    display: inline-block;
+  }
+
+
+  .footer-separator {
+    margin: 0 16px;
+    color:
+      rgba(
+        255,
+        255,
+        255,
+        0.6
+      );
+  }
+
+
+  /* ==================================
+     Mobile-friendly email styling
+     ================================== */
+
+  @media only screen and (max-width: 700px) {
+
+    body {
+      padding: 0;
+    }
+
+
+    .email-page {
+      border-radius: 0;
+    }
+
+
+    .brand-header {
+      padding: 20px;
+    }
+
+
+    .brand-logo-area,
+    .report-heading {
+      display: block;
+      width: 100%;
+    }
+
+
+    .header-divider {
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin: 16px 0;
+    }
+
+
+    .brand-logo {
+      max-width: 230px;
+    }
+
+
+    .email-content {
+      padding: 22px 16px;
+    }
+
+
+    table {
+      font-size: 9px;
+    }
+
+
+    th,
+    td {
+      padding: 7px 5px;
+    }
+
+
+    .footer-item,
+    .footer-separator {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+</style>
